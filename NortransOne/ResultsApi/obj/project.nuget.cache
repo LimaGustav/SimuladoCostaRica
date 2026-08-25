@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "dgSpecHash": "CYgij1mDQNw=",
+  "success": true,
+  "projectFilePath": "C:\\Users\\competidor\\Desktop\\SimuladoCostaRica\\NortransOne\\ResultsApi\\ResultsApi.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\competidor\\.nuget\\packages\\microsoft.visualstudio.azure.containers.tools.targets\\1.23.0\\microsoft.visualstudio.azure.containers.tools.targets.1.23.0.nupkg.sha512"
+  ],
+  "logs": []
+}

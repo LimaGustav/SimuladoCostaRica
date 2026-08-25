@@ -1,0 +1,265 @@
+2026-08-24T15:25:39.1291488Z local-runner(version:v0.6.1) received task 3 of job 1, be triggered by event: push
+2026-08-24T15:25:39.1298463Z workflow prepared
+2026-08-24T15:25:39.1308080Z evaluating expression 'success()'
+2026-08-24T15:25:39.1308668Z expression 'success()' evaluated to 'true'
+2026-08-24T15:25:39.1308769Z 🚀  Start image=docker.gitea.com/runner-images:ubuntu-latest
+2026-08-24T15:25:39.1599734Z   🐳  docker pull image=docker.gitea.com/runner-images:ubuntu-latest platform= username= forcePull=true
+2026-08-24T15:25:39.1600046Z   🐳  docker pull docker.gitea.com/runner-images:ubuntu-latest
+2026-08-24T15:25:39.1600206Z pulling image 'docker.gitea.com/runner-images:ubuntu-latest' ()
+2026-08-24T15:25:40.3396230Z Pulling from runner-images :: ubuntu-latest
+2026-08-24T15:25:42.0353410Z Pulling fs layer :: bd9ddc54bea9
+2026-08-24T15:25:42.0354041Z Pulling fs layer :: 7647273b3c36
+2026-08-24T15:25:53.5893546Z Digest: sha256:e77e2b1ebba51adb1c59d8eb185bc54e397b7e22442756aa7ea0e7b841fd2906 :: 
+2026-08-24T15:25:53.5893952Z Status: Downloaded newer image for docker.gitea.com/runner-images:ubuntu-latest :: 
+2026-08-24T15:25:53.6485589Z   🐳  docker create image=docker.gitea.com/runner-images:ubuntu-latest platform= entrypoint=["/bin/sleep" "10800"] cmd=[] network="simuladocostarica_gitea"
+2026-08-24T15:25:54.2849590Z Created container name=GITEA-ACTIONS-TASK-3-WORKFLOW-Deploy-WebAPI-JOB-deploy-api-87463b137d10dba2d23f092bc0749588b780c55bf23f2d16ad233a7f008fb140 id=637ef1260596502930fab0f7278425da85a4e8812eb587bf42235f18855af8a1 from image docker.gitea.com/runner-images:ubuntu-latest (platform: )
+2026-08-24T15:25:54.2849868Z ENV ==> [RUNNER_TOOL_CACHE=/opt/hostedtoolcache RUNNER_OS=Linux RUNNER_ARCH=X64 RUNNER_TEMP=/tmp LANG=C.UTF-8]
+2026-08-24T15:25:54.2849956Z   🐳  docker run image=docker.gitea.com/runner-images:ubuntu-latest platform= entrypoint=["/bin/sleep" "10800"] cmd=[] network="simuladocostarica_gitea"
+2026-08-24T15:25:54.2850044Z Starting container: 637ef1260596502930fab0f7278425da85a4e8812eb587bf42235f18855af8a1
+2026-08-24T15:25:54.5305197Z Started container: 637ef1260596502930fab0f7278425da85a4e8812eb587bf42235f18855af8a1
+2026-08-24T15:25:54.5882408Z Writing entry to tarball workflow/event.json len:25435
+2026-08-24T15:25:54.5883136Z Writing entry to tarball workflow/envs.txt len:0
+2026-08-24T15:25:54.5883389Z Extracting content to '/var/run/act/'
+2026-08-24T15:25:54.6093832Z   ☁  git clone 'https://github.com/actions/checkout' # ref=v3
+2026-08-24T15:25:54.6094065Z   cloning https://github.com/actions/checkout to /root/.cache/act/656c968832d266db0fe5f8f638000eea9e6a5501569cb9a87c7fdaefedb6a0b6
+2026-08-24T15:26:01.3538204Z Cloned https://github.com/actions/checkout to /root/.cache/act/656c968832d266db0fe5f8f638000eea9e6a5501569cb9a87c7fdaefedb6a0b6
+2026-08-24T15:26:01.3875112Z Checked out v3
+2026-08-24T15:26:01.4120698Z evaluating expression ''
+2026-08-24T15:26:01.4121225Z expression '' evaluated to 'true'
+2026-08-24T15:26:01.4121407Z ⭐ Run Main Get port number
+2026-08-24T15:26:01.4121544Z Writing entry to tarball workflow/outputcmd.txt len:0
+2026-08-24T15:26:01.4121634Z Writing entry to tarball workflow/statecmd.txt len:0
+2026-08-24T15:26:01.4121688Z Writing entry to tarball workflow/pathcmd.txt len:0
+2026-08-24T15:26:01.4121745Z Writing entry to tarball workflow/envs.txt len:0
+2026-08-24T15:26:01.4121784Z Writing entry to tarball workflow/SUMMARY.md len:0
+2026-08-24T15:26:01.4121829Z Extracting content to '/var/run/act'
+2026-08-24T15:26:01.4441775Z expression 'REPO_NAME="${{ github.event.repository.name }}"\n\n# Extrai apenas os números da string usando sed\nNUMBERS=$(echo "$REPO_NAME" | sed 's/[^0-9]//g')\nPORT="50${NUMBERS}"\n\necho "Porta gerada: $PORT"\n\n# CORREÇÃO: Salvando no GITHUB_ENV para que TODOS os próximos steps vejam\necho "NUMBERS=${NUMBERS}" >> $GITHUB_ENV\necho "PORT=${PORT}" >> $GITHUB_ENV\n' rewritten to 'format('REPO_NAME="{0}"\n\n# Extrai apenas os números da string usando sed\nNUMBERS=$(echo "$REPO_NAME" | sed ''s/[^0-9]//g'')\nPORT="50${{NUMBERS}}"\n\necho "Porta gerada: $PORT"\n\n# CORREÇÃO: Salvando no GITHUB_ENV para que TODOS os próximos steps vejam\necho "NUMBERS=${{NUMBERS}}" >> $GITHUB_ENV\necho "PORT=${{PORT}}" >> $GITHUB_ENV\n', github.event.repository.name)'
+2026-08-24T15:26:01.4442192Z evaluating expression 'format('REPO_NAME="{0}"\n\n# Extrai apenas os números da string usando sed\nNUMBERS=$(echo "$REPO_NAME" | sed ''s/[^0-9]//g'')\nPORT="50${{NUMBERS}}"\n\necho "Porta gerada: $PORT"\n\n# CORREÇÃO: Salvando no GITHUB_ENV para que TODOS os próximos steps vejam\necho "NUMBERS=${{NUMBERS}}" >> $GITHUB_ENV\necho "PORT=${{PORT}}" >> $GITHUB_ENV\n', github.event.repository.name)'
+2026-08-24T15:26:01.4442703Z expression 'format('REPO_NAME="{0}"\n\n# Extrai apenas os números da string usando sed\nNUMBERS=$(echo "$REPO_NAME" | sed ''s/[^0-9]//g'')\nPORT="50${{NUMBERS}}"\n\necho "Porta gerada: $PORT"\n\n# CORREÇÃO: Salvando no GITHUB_ENV para que TODOS os próximos steps vejam\necho "NUMBERS=${{NUMBERS}}" >> $GITHUB_ENV\necho "PORT=${{PORT}}" >> $GITHUB_ENV\n', github.event.repository.name)' evaluated to '%!t(string=REPO_NAME="FamiliarizationAPI"\n\n# Extrai apenas os números da string usando sed\nNUMBERS=$(echo "$REPO_NAME" | sed 's/[^0-9]//g')\nPORT="50${NUMBERS}"\n\necho "Porta gerada: $PORT"\n\n# CORREÇÃO: Salvando no GITHUB_ENV para que TODOS os próximos steps vejam\necho "NUMBERS=${NUMBERS}" >> $GITHUB_ENV\necho "PORT=${PORT}" >> $GITHUB_ENV\n)'
+2026-08-24T15:26:01.4442830Z Wrote command \n\nREPO_NAME="FamiliarizationAPI"\n\n# Extrai apenas os números da string usando sed\nNUMBERS=$(echo "$REPO_NAME" | sed 's/[^0-9]//g')\nPORT="50${NUMBERS}"\n\necho "Porta gerada: $PORT"\n\n# CORREÇÃO: Salvando no GITHUB_ENV para que TODOS os próximos steps vejam\necho "NUMBERS=${NUMBERS}" >> $GITHUB_ENV\necho "PORT=${PORT}" >> $GITHUB_ENV\n\n\n to 'workflow/0'
+2026-08-24T15:26:01.4442965Z Writing entry to tarball workflow/0 len:334
+2026-08-24T15:26:01.4443061Z Extracting content to '/var/run/act'
+2026-08-24T15:26:01.4475681Z ::group::Run REPO_NAME="FamiliarizationAPI"
+2026-08-24T15:26:01.4475951Z REPO_NAME="FamiliarizationAPI"
+2026-08-24T15:26:01.4476014Z 
+2026-08-24T15:26:01.4476052Z # Extrai apenas os números da string usando sed
+2026-08-24T15:26:01.4476105Z NUMBERS=$(echo "$REPO_NAME" | sed 's/[^0-9]//g')
+2026-08-24T15:26:01.4476146Z PORT="50${NUMBERS}"
+2026-08-24T15:26:01.4476221Z 
+2026-08-24T15:26:01.4476253Z echo "Porta gerada: $PORT"
+2026-08-24T15:26:01.4476293Z 
+2026-08-24T15:26:01.4476333Z # CORREÇÃO: Salvando no GITHUB_ENV para que TODOS os próximos steps vejam
+2026-08-24T15:26:01.4476377Z echo "NUMBERS=${NUMBERS}" >> $GITHUB_ENV
+2026-08-24T15:26:01.4476416Z echo "PORT=${PORT}" >> $GITHUB_ENV
+2026-08-24T15:26:01.4476456Z shell: bash --noprofile --norc -e -o pipefail {0}
+2026-08-24T15:26:01.4476510Z ::endgroup::
+2026-08-24T15:26:01.4780306Z Porta gerada: 50
+2026-08-24T15:26:01.5279223Z ::group::Run 1. Baixar o código atualizado
+2026-08-24T15:26:02.8929634Z (node:28) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+2026-08-24T15:26:02.8929949Z (Use `node --trace-deprecation ...` to show where the warning was created)
+2026-08-24T15:26:02.8935039Z ::add-matcher::/run/act/actions/656c968832d266db0fe5f8f638000eea9e6a5501569cb9a87c7fdaefedb6a0b6/dist/problem-matcher.json
+2026-08-24T15:26:02.8937786Z Syncing repository: Deliveries/FamiliarizationAPI
+2026-08-24T15:26:02.8938194Z ::group::Getting Git version info
+2026-08-24T15:26:02.8938252Z Working directory is '/workspace/Deliveries/FamiliarizationAPI'
+2026-08-24T15:26:02.8961032Z [command]/usr/bin/git version
+2026-08-24T15:26:02.8985583Z git version 2.54.0
+2026-08-24T15:26:02.8996918Z ::endgroup::
+2026-08-24T15:26:02.9008751Z Temporarily overriding HOME='/tmp/f815f562-a0a2-49b3-9422-34fab82b51f7' before making global git config changes
+2026-08-24T15:26:02.9009017Z Adding repository directory to the temporary git global config as a safe directory
+2026-08-24T15:26:02.9010415Z [command]/usr/bin/git config --global --add safe.directory /workspace/Deliveries/FamiliarizationAPI
+2026-08-24T15:26:02.9027222Z Deleting the contents of '/workspace/Deliveries/FamiliarizationAPI'
+2026-08-24T15:26:02.9029930Z ::group::Initializing the repository
+2026-08-24T15:26:02.9033837Z [command]/usr/bin/git init /workspace/Deliveries/FamiliarizationAPI
+2026-08-24T15:26:02.9065355Z hint: Using 'master' as the name for the initial branch. This default branch name
+2026-08-24T15:26:02.9065681Z hint: will change to "main" in Git 3.0. To configure the initial branch name
+2026-08-24T15:26:02.9065773Z hint: to use in all of your new repositories, which will suppress this warning,
+2026-08-24T15:26:02.9065822Z hint: call:
+2026-08-24T15:26:02.9065871Z hint:
+2026-08-24T15:26:02.9065912Z hint: 	git config --global init.defaultBranch <name>
+2026-08-24T15:26:02.9065955Z hint:
+2026-08-24T15:26:02.9065993Z hint: Names commonly chosen instead of 'master' are 'main', 'trunk' and
+2026-08-24T15:26:02.9066069Z hint: 'development'. The just-created branch can be renamed via this command:
+2026-08-24T15:26:02.9066115Z hint:
+2026-08-24T15:26:02.9066160Z hint: 	git branch -m <name>
+2026-08-24T15:26:02.9066204Z hint:
+2026-08-24T15:26:02.9066240Z hint: Disable this message with "git config set advice.defaultBranchName false"
+2026-08-24T15:26:02.9066304Z Initialized empty Git repository in /workspace/Deliveries/FamiliarizationAPI/.git/
+2026-08-24T15:26:02.9068882Z [command]/usr/bin/git remote add origin http://gitea:3000/Deliveries/FamiliarizationAPI
+2026-08-24T15:26:02.9084327Z ::endgroup::
+2026-08-24T15:26:02.9084496Z ::group::Disabling automatic garbage collection
+2026-08-24T15:26:02.9085031Z [command]/usr/bin/git config --local gc.auto 0
+2026-08-24T15:26:02.9097773Z ::endgroup::
+2026-08-24T15:26:02.9097895Z ::group::Setting up auth
+2026-08-24T15:26:02.9099791Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+2026-08-24T15:26:02.9114268Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+2026-08-24T15:26:02.9267186Z [command]/usr/bin/git config --local --name-only --get-regexp http\.http\:\/\/gitea\:3000\/\.extraheader
+2026-08-24T15:26:02.9282051Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.http\:\/\/gitea\:3000\/\.extraheader' && git config --local --unset-all 'http.http://gitea:3000/.extraheader' || :"
+2026-08-24T15:26:02.9405495Z [command]/usr/bin/git config --local http.http://gitea:3000/.extraheader AUTHORIZATION: basic ***
+2026-08-24T15:26:02.9425157Z ::endgroup::
+2026-08-24T15:26:02.9425298Z ::group::Fetching the repository
+2026-08-24T15:26:02.9428782Z [command]/usr/bin/git -c protocol.version=2 fetch --no-tags --prune --progress --no-recurse-submodules --depth=1 origin +6446257c373fb54bd9eb9f75561413aab5149e0d:refs/remotes/origin/main
+2026-08-24T15:26:03.0465901Z remote: Enumerating objects: 213, done.        
+2026-08-24T15:26:03.0489208Z remote: Counting objects:   0% (1/213)        remote: Counting objects:   1% (3/213)        remote: Counting objects:   2% (5/213)        remote: Counting objects:   3% (7/213)        remote: Counting objects:   4% (9/213)        remote: Counting objects:   5% (11/213)        remote: Counting objects:   6% (13/213)        remote: Counting objects:   7% (15/213)        remote: Counting objects:   8% (18/213)        remote: Counting objects:   9% (20/213)        remote: Counting objects:  10% (22/213)        remote: Counting objects:  11% (24/213)        remote: Counting objects:  12% (26/213)        remote: Counting objects:  13% (28/213)        remote: Counting objects:  14% (30/213)        remote: Counting objects:  15% (32/213)        remote: Counting objects:  16% (35/213)        remote: Counting objects:  17% (37/213)        remote: Counting objects:  18% (39/213)        remote: Counting objects:  19% (41/213)        remote: Counting objects:  20% (43/213)        remote: Counting objects:  21% (45/213)        remote: Counting objects:  22% (47/213)        remote: Counting objects:  23% (49/213)        remote: Counting objects:  24% (52/213)        remote: Counting objects:  25% (54/213)        remote: Counting objects:  26% (56/213)        remote: Counting objects:  27% (58/213)        remote: Counting objects:  28% (60/213)        remote: Counting objects:  29% (62/213)        remote: Counting objects:  30% (64/213)        remote: Counting objects:  31% (67/213)        remote: Counting objects:  32% (69/213)        remote: Counting objects:  33% (71/213)        remote: Counting objects:  34% (73/213)        remote: Counting objects:  35% (75/213)        remote: Counting objects:  36% (77/213)        remote: Counting objects:  37% (79/213)        remote: Counting objects:  38% (81/213)        remote: Counting objects:  39% (84/213)        remote: Counting objects:  40% (86/213)        remote: Counting objects:  41% (88/213)        remote: Counting objects:  42% (90/213)        remote: Counting objects:  43% (92/213)        remote: Counting objects:  44% (94/213)        remote: Counting objects:  45% (96/213)        remote: Counting objects:  46% (98/213)        remote: Counting objects:  47% (101/213)        remote: Counting objects:  48% (103/213)        remote: Counting objects:  49% (105/213)        remote: Counting objects:  50% (107/213)        remote: Counting objects:  51% (109/213)        remote: Counting objects:  52% (111/213)        remote: Counting objects:  53% (113/213)        remote: Counting objects:  54% (116/213)        remote: Counting objects:  55% (118/213)        remote: Counting objects:  56% (120/213)        remote: Counting objects:  57% (122/213)        remote: Counting objects:  58% (124/213)        remote: Counting objects:  59% (126/213)        remote: Counting objects:  60% (128/213)        remote: Counting objects:  61% (130/213)        remote: Counting objects:  62% (133/213)        remote: Counting objects:  63% (135/213)        remote: Counting objects:  64% (137/213)        remote: Counting objects:  65% (139/213)        remote: Counting objects:  66% (141/213)        remote: Counting objects:  67% (143/213)        remote: Counting objects:  68% (145/213)        remote: Counting objects:  69% (147/213)        remote: Counting objects:  70% (150/213)        remote: Counting objects:  71% (152/213)        remote: Counting objects:  72% (154/213)        remote: Counting objects:  73% (156/213)        remote: Counting objects:  74% (158/213)        remote: Counting objects:  75% (160/213)        remote: Counting objects:  76% (162/213)        remote: Counting objects:  77% (165/213)        remote: Counting objects:  78% (167/213)        remote: Counting objects:  79% (169/213)        remote: Counting objects:  80% (171/213)        remote: Counting objects:  81% (173/213)        remote: Counting objects:  82% (175/213)        remote: Counting objects:  83% (177/213)        remote: Counting objects:  84% (179/213)        remote: Counting objects:  85% (182/213)        remote: Counting objects:  86% (184/213)        remote: Counting objects:  87% (186/213)        remote: Counting objects:  88% (188/213)        remote: Counting objects:  89% (190/213)        remote: Counting objects:  90% (192/213)        remote: Counting objects:  91% (194/213)        remote: Counting objects:  92% (196/213)        remote: Counting objects:  93% (199/213)        remote: Counting objects:  94% (201/213)        remote: Counting objects:  95% (203/213)        remote: Counting objects:  96% (205/213)        remote: Counting objects:  97% (207/213)        remote: Counting objects:  98% (209/213)        remote: Counting objects:  99% (211/213)        remote: Counting objects: 100% (213/213)        remote: Counting objects: 100% (213/213), done.        
+2026-08-24T15:26:03.0490134Z remote: Compressing objects:   0% (1/128)        remote: Compressing objects:   1% (2/128)        remote: Compressing objects:   2% (3/128)        remote: Compressing objects:   3% (4/128)        remote: Compressing objects:   4% (6/128)        remote: Compressing objects:   5% (7/128)        remote: Compressing objects:   6% (8/128)        remote: Compressing objects:   7% (9/128)        remote: Compressing objects:   8% (11/128)        remote: Compressing objects:   9% (12/128)        remote: Compressing objects:  10% (13/128)        remote: Compressing objects:  11% (15/128)        remote: Compressing objects:  12% (16/128)        remote: Compressing objects:  13% (17/128)        remote: Compressing objects:  14% (18/128)        remote: Compressing objects:  15% (20/128)        remote: Compressing objects:  16% (21/128)        remote: Compressing objects:  17% (22/128)        remote: Compressing objects:  18% (24/128)        remote: Compressing objects:  19% (25/128)        remote: Compressing objects:  20% (26/128)        remote: Compressing objects:  21% (27/128)        remote: Compressing objects:  22% (29/128)        remote: Compressing objects:  23% (30/128)        remote: Compressing objects:  24% (31/128)        remote: Compressing objects:  25% (32/128)        remote: Compressing objects:  26% (34/128)        remote: Compressing objects:  27% (35/128)        remote: Compressing objects:  28% (36/128)        remote: Compressing objects:  29% (38/128)        remote: Compressing objects:  30% (39/128)        remote: Compressing objects:  31% (40/128)        remote: Compressing objects:  32% (41/128)        remote: Compressing objects:  33% (43/128)        remote: Compressing objects:  34% (44/128)        remote: Compressing objects:  35% (45/128)        remote: Compressing objects:  36% (47/128)        remote: Compressing objects:  37% (48/128)        remote: Compressing objects:  38% (49/128)        remote: Compressing objects:  39% (50/128)        remote: Compressing objects:  40% (52/128)        remote: Compressing objects:  41% (53/128)        remote: Compressing objects:  42% (54/128)        remote: Compressing objects:  43% (56/128)        remote: Compressing objects:  44% (57/128)        remote: Compressing objects:  45% (58/128)        remote: Compressing objects:  46% (59/128)        remote: Compressing objects:  47% (61/128)        remote: Compressing objects:  48% (62/128)        remote: Compressing objects:  49% (63/128)        remote: Compressing objects:  50% (64/128)        remote: Compressing objects:  51% (66/128)        remote: Compressing objects:  52% (67/128)        remote: Compressing objects:  53% (68/128)        remote: Compressing objects:  54% (70/128)        remote: Compressing objects:  55% (71/128)        remote: Compressing objects:  56% (72/128)        remote: Compressing objects:  57% (73/128)        remote: Compressing objects:  58% (75/128)        remote: Compressing objects:  59% (76/128)        remote: Compressing objects:  60% (77/128)        remote: Compressing objects:  61% (79/128)        remote: Compressing objects:  62% (80/128)        remote: Compressing objects:  63% (81/128)        remote: Compressing objects:  64% (82/128)        remote: Compressing objects:  65% (84/128)        remote: Compressing objects:  66% (85/128)        remote: Compressing objects:  67% (86/128)        remote: Compressing objects:  68% (88/128)        remote: Compressing objects:  69% (89/128)        remote: Compressing objects:  70% (90/128)        remote: Compressing objects:  71% (91/128)        remote: Compressing objects:  72% (93/128)        remote: Compressing objects:  73% (94/128)        remote: Compressing objects:  74% (95/128)        remote: Compressing objects:  75% (96/128)        remote: Compressing objects:  76% (98/128)        remote: Compressing objects:  77% (99/128)        remote: Compressing objects:  78% (100/128)        remote: Compressing objects:  79% (102/128)        remote: Compressing objects:  80% (103/128)        remote: Compressing objects:  81% (104/128)        remote: Compressing objects:  82% (105/128)        remote: Compressing objects:  83% (107/128)        remote: Compressing objects:  84% (108/128)        remote: Compressing objects:  85% (109/128)        remote: Compressing objects:  86% (111/128)        remote: Compressing objects:  87% (112/128)        remote: Compressing objects:  88% (113/128)        remote: Compressing objects:  89% (114/128)        remote: Compressing objects:  90% (116/128)        remote: Compressing objects:  91% (117/128)        remote: Compressing objects:  92% (118/128)        remote: Compressing objects:  93% (120/128)        remote: Compressing objects:  94% (121/128)        remote: Compressing objects:  95% (122/128)        remote: Compressing objects:  96% (123/128)        remote: Compressing objects:  97% (125/128)        remote: Compressing objects:  98% (126/128)        remote: Compressing objects:  99% (127/128)        remote: Compressing objects: 100% (128/128)        remote: Compressing objects: 100% (128/128), done.        
+2026-08-24T15:26:03.2804437Z Receiving objects:   0% (1/213)Receiving objects:   1% (3/213)Receiving objects:   2% (5/213)Receiving objects:   3% (7/213)Receiving objects:   4% (9/213)Receiving objects:   5% (11/213)Receiving objects:   6% (13/213)Receiving objects:   7% (15/213)Receiving objects:   8% (18/213)Receiving objects:   9% (20/213)Receiving objects:  10% (22/213)Receiving objects:  11% (24/213)Receiving objects:  12% (26/213)Receiving objects:  13% (28/213)Receiving objects:  14% (30/213)Receiving objects:  15% (32/213)Receiving objects:  16% (35/213)Receiving objects:  17% (37/213)Receiving objects:  18% (39/213)Receiving objects:  19% (41/213)Receiving objects:  20% (43/213)Receiving objects:  21% (45/213)Receiving objects:  22% (47/213)Receiving objects:  23% (49/213)Receiving objects:  24% (52/213)Receiving objects:  25% (54/213)Receiving objects:  26% (56/213)Receiving objects:  27% (58/213)Receiving objects:  28% (60/213)Receiving objects:  29% (62/213)Receiving objects:  30% (64/213)Receiving objects:  31% (67/213)Receiving objects:  32% (69/213)Receiving objects:  33% (71/213)Receiving objects:  34% (73/213)Receiving objects:  35% (75/213)Receiving objects:  36% (77/213)Receiving objects:  37% (79/213)Receiving objects:  38% (81/213)Receiving objects:  39% (84/213)Receiving objects:  40% (86/213)Receiving objects:  41% (88/213)Receiving objects:  42% (90/213)Receiving objects:  43% (92/213)Receiving objects:  44% (94/213)Receiving objects:  45% (96/213)Receiving objects:  46% (98/213)Receiving objects:  47% (101/213)Receiving objects:  48% (103/213)Receiving objects:  49% (105/213)Receiving objects:  50% (107/213)Receiving objects:  51% (109/213)Receiving objects:  52% (111/213)Receiving objects:  53% (113/213)Receiving objects:  54% (116/213)Receiving objects:  55% (118/213)Receiving objects:  56% (120/213)Receiving objects:  57% (122/213)Receiving objects:  58% (124/213)Receiving objects:  59% (126/213)Receiving objects:  60% (128/213)Receiving objects:  61% (130/213)Receiving objects:  62% (133/213)Receiving objects:  63% (135/213)Receiving objects:  64% (137/213)Receiving objects:  65% (139/213)Receiving objects:  66% (141/213)Receiving objects:  67% (143/213)Receiving objects:  68% (145/213)Receiving objects:  69% (147/213)Receiving objects:  70% (150/213)Receiving objects:  71% (152/213)Receiving objects:  72% (154/213)Receiving objects:  73% (156/213)Receiving objects:  74% (158/213)Receiving objects:  75% (160/213)Receiving objects:  76% (162/213)Receiving objects:  77% (165/213)Receiving objects:  78% (167/213)Receiving objects:  79% (169/213)Receiving objects:  80% (171/213)remote: Total 213 (delta 59), reused 213 (delta 59), pack-reused 0 (from 0)        
+2026-08-24T15:26:03.2815832Z Receiving objects:  81% (173/213)Receiving objects:  82% (175/213)Receiving objects:  83% (177/213)Receiving objects:  84% (179/213)Receiving objects:  85% (182/213)Receiving objects:  86% (184/213)Receiving objects:  87% (186/213)Receiving objects:  88% (188/213)Receiving objects:  89% (190/213)Receiving objects:  90% (192/213)Receiving objects:  91% (194/213)Receiving objects:  92% (196/213)Receiving objects:  93% (199/213)Receiving objects:  94% (201/213)Receiving objects:  95% (203/213)Receiving objects:  96% (205/213)Receiving objects:  97% (207/213)Receiving objects:  98% (209/213)Receiving objects:  99% (211/213)Receiving objects: 100% (213/213)Receiving objects: 100% (213/213), 13.25 MiB | 57.26 MiB/s, done.
+2026-08-24T15:26:03.2931869Z Resolving deltas:   0% (0/59)Resolving deltas:   1% (1/59)Resolving deltas:   3% (2/59)Resolving deltas:   6% (4/59)Resolving deltas:  10% (6/59)Resolving deltas:  11% (7/59)Resolving deltas:  13% (8/59)Resolving deltas:  22% (13/59)Resolving deltas:  23% (14/59)Resolving deltas:  25% (15/59)Resolving deltas:  27% (16/59)Resolving deltas:  28% (17/59)Resolving deltas:  30% (18/59)Resolving deltas:  32% (19/59)Resolving deltas:  33% (20/59)Resolving deltas:  35% (21/59)Resolving deltas:  37% (22/59)Resolving deltas:  38% (23/59)Resolving deltas:  40% (24/59)Resolving deltas:  44% (26/59)Resolving deltas:  47% (28/59)Resolving deltas:  49% (29/59)Resolving deltas:  54% (32/59)Resolving deltas:  59% (35/59)Resolving deltas:  61% (36/59)Resolving deltas:  62% (37/59)Resolving deltas:  64% (38/59)Resolving deltas:  66% (39/59)Resolving deltas:  67% (40/59)Resolving deltas:  72% (43/59)Resolving deltas:  81% (48/59)Resolving deltas:  86% (51/59)Resolving deltas:  88% (52/59)Resolving deltas:  89% (53/59)Resolving deltas:  91% (54/59)Resolving deltas:  96% (57/59)Resolving deltas:  98% (58/59)Resolving deltas: 100% (59/59)Resolving deltas: 100% (59/59), done.
+2026-08-24T15:26:03.3360108Z From http://gitea:3000/Deliveries/FamiliarizationAPI
+2026-08-24T15:26:03.3360624Z  * [new ref]         6446257c373fb54bd9eb9f75561413aab5149e0d -> origin/main
+2026-08-24T15:26:03.3372889Z ::endgroup::
+2026-08-24T15:26:03.3372998Z ::group::Determining the checkout info
+2026-08-24T15:26:03.3375887Z ::endgroup::
+2026-08-24T15:26:03.3376076Z ::group::Checking out the ref
+2026-08-24T15:26:03.3376279Z [command]/usr/bin/git checkout --progress --force -B main refs/remotes/origin/main
+2026-08-24T15:26:03.4710660Z Switched to a new branch 'main'
+2026-08-24T15:26:03.4711073Z branch 'main' set up to track 'origin/main'.
+2026-08-24T15:26:03.4715997Z ::endgroup::
+2026-08-24T15:26:03.4735551Z [command]/usr/bin/git log -1 --format='%H'
+2026-08-24T15:26:03.4748179Z '6446257c373fb54bd9eb9f75561413aab5149e0d'
+2026-08-24T15:26:03.4753246Z ::remove-matcher owner=checkout-git::
+2026-08-24T15:26:03.4811167Z ::endgroup::
+2026-08-24T15:26:03.5573329Z ::group::Run # Usando a variável global para parar o container correto
+2026-08-24T15:26:03.5573648Z # Usando a variável global para parar o container correto
+2026-08-24T15:26:03.5573721Z docker stop "api-competidor-container" || true
+2026-08-24T15:26:03.5573767Z docker rm "api-competidor-container" || true
+2026-08-24T15:26:03.5573811Z shell: bash --noprofile --norc -e -o pipefail {0}
+2026-08-24T15:26:03.5573871Z ::endgroup::
+2026-08-24T15:26:03.5985247Z Error response from daemon: No such container: api-competidor-container
+2026-08-24T15:26:03.6136465Z Error response from daemon: No such container: api-competidor-container
+2026-08-24T15:26:03.6908993Z ::group::Run # Repare na sintaxe  para ler a variável global
+2026-08-24T15:26:03.6909487Z # Repare na sintaxe  para ler a variável global
+2026-08-24T15:26:03.6909588Z docker build -t "webapi-imagem-local" .
+2026-08-24T15:26:03.6909674Z shell: bash --noprofile --norc -e -o pipefail {0}
+2026-08-24T15:26:03.6909764Z ::endgroup::
+2026-08-24T15:26:03.8930766Z #0 building with "default" instance using docker driver
+2026-08-24T15:26:03.8931367Z 
+2026-08-24T15:26:03.8931426Z #1 [internal] load build definition from Dockerfile
+2026-08-24T15:26:04.0830403Z #1 transferring dockerfile: 1.18kB done
+2026-08-24T15:26:04.0831057Z #1 DONE 0.0s
+2026-08-24T15:26:04.0831123Z 
+2026-08-24T15:26:04.0831186Z #2 [internal] load metadata for mcr.microsoft.com/dotnet/sdk:8.0
+2026-08-24T15:26:05.0711987Z #2 DONE 1.1s
+2026-08-24T15:26:05.0712471Z 
+2026-08-24T15:26:05.0712529Z #3 [internal] load metadata for mcr.microsoft.com/dotnet/aspnet:8.0
+2026-08-24T15:26:05.2036826Z #3 DONE 1.1s
+2026-08-24T15:26:05.2037272Z 
+2026-08-24T15:26:05.2037353Z #4 [internal] load .dockerignore
+2026-08-24T15:26:05.2037410Z #4 transferring context: 435B done
+2026-08-24T15:26:05.2037453Z #4 DONE 0.1s
+2026-08-24T15:26:05.3363171Z 
+2026-08-24T15:26:05.3363916Z #5 [build 1/7] FROM mcr.microsoft.com/dotnet/sdk:8.0@sha256:89ce6291bde9acdf59594e79fb8277c6d84c46e4b1f5bf126a4f18766e4bd597
+2026-08-24T15:26:05.3364067Z #5 resolve mcr.microsoft.com/dotnet/sdk:8.0@sha256:89ce6291bde9acdf59594e79fb8277c6d84c46e4b1f5bf126a4f18766e4bd597 0.0s done
+2026-08-24T15:26:05.3364201Z #5 DONE 0.0s
+2026-08-24T15:26:05.3364326Z 
+2026-08-24T15:26:05.3364401Z #6 [base 1/2] FROM mcr.microsoft.com/dotnet/aspnet:8.0@sha256:e78fda31142e28746a6908e288e0d40346793f691ca99d8d150bcbe95c0ef035
+2026-08-24T15:26:05.3364535Z #6 resolve mcr.microsoft.com/dotnet/aspnet:8.0@sha256:e78fda31142e28746a6908e288e0d40346793f691ca99d8d150bcbe95c0ef035 0.0s done
+2026-08-24T15:26:05.3364623Z #6 DONE 0.0s
+2026-08-24T15:26:05.3364690Z 
+2026-08-24T15:26:05.3364775Z #7 [internal] load build context
+2026-08-24T15:26:05.4887305Z #7 transferring context: 6.58kB done
+2026-08-24T15:26:05.4887779Z #7 DONE 0.0s
+2026-08-24T15:26:05.4887977Z 
+2026-08-24T15:26:05.4888022Z #8 [build 3/7] COPY [WebAPIBase.csproj, .]
+2026-08-24T15:26:05.4888068Z #8 CACHED
+2026-08-24T15:26:05.4888104Z 
+2026-08-24T15:26:05.4888143Z #9 [build 2/7] WORKDIR /src
+2026-08-24T15:26:05.4888181Z #9 CACHED
+2026-08-24T15:26:05.4888215Z 
+2026-08-24T15:26:05.4888257Z #10 [build 4/7] RUN dotnet restore "./WebAPIBase.csproj"
+2026-08-24T15:26:05.6210734Z #10 CACHED
+2026-08-24T15:26:05.6211666Z 
+2026-08-24T15:26:05.6211782Z #11 [build 5/7] COPY . .
+2026-08-24T15:26:05.6211863Z #11 DONE 0.1s
+2026-08-24T15:26:05.8213196Z 
+2026-08-24T15:26:05.8214083Z #12 [build 6/7] WORKDIR /src/.
+2026-08-24T15:26:05.8214206Z #12 DONE 0.0s
+2026-08-24T15:26:05.8214287Z 
+2026-08-24T15:26:05.8214423Z #13 [build 7/7] RUN dotnet build "./WebAPIBase.csproj" -c Release -o /app/build
+2026-08-24T15:26:06.4051205Z #13 0.734   Determining projects to restore...
+2026-08-24T15:26:06.6934145Z #13 1.023   All projects are up-to-date for restore.
+2026-08-24T15:26:08.4996344Z #13 2.829   WebAPIBase -> /app/build/WebAPIBase.dll
+2026-08-24T15:26:08.6970227Z #13 2.837 
+2026-08-24T15:26:08.6970650Z #13 2.837 Build succeeded.
+2026-08-24T15:26:08.6970714Z #13 2.837     0 Warning(s)
+2026-08-24T15:26:08.6970769Z #13 2.837     0 Error(s)
+2026-08-24T15:26:08.6970812Z #13 2.838 
+2026-08-24T15:26:08.6970857Z #13 2.838 Time Elapsed 00:00:02.38
+2026-08-24T15:26:08.6970896Z #13 DONE 2.9s
+2026-08-24T15:26:08.6970960Z 
+2026-08-24T15:26:08.6971001Z #14 [publish 1/1] RUN dotnet publish "./WebAPIBase.csproj" -c Release -o /app/publish /p:UseAppHost=false
+2026-08-24T15:26:09.2132722Z #14 0.667   Determining projects to restore...
+2026-08-24T15:26:09.4250228Z #14 0.878   All projects are up-to-date for restore.
+2026-08-24T15:26:09.7368379Z #14 1.191   WebAPIBase -> /src/bin/Release/net8.0/WebAPIBase.dll
+2026-08-24T15:26:09.8426816Z #14 1.248   WebAPIBase -> /app/publish/
+2026-08-24T15:26:09.8427263Z #14 DONE 1.3s
+2026-08-24T15:26:09.8427321Z 
+2026-08-24T15:26:09.8427361Z #15 [base 2/2] WORKDIR /app
+2026-08-24T15:26:09.8427431Z #15 CACHED
+2026-08-24T15:26:09.8427470Z 
+2026-08-24T15:26:09.8427517Z #16 [final 1/2] WORKDIR /app
+2026-08-24T15:26:09.8427556Z #16 CACHED
+2026-08-24T15:26:10.0916858Z 
+2026-08-24T15:26:10.0917548Z #17 [final 2/2] COPY --from=publish /app/publish .
+2026-08-24T15:26:10.0917969Z #17 DONE 0.1s
+2026-08-24T15:26:10.0918126Z 
+2026-08-24T15:26:10.0918173Z #18 exporting to image
+2026-08-24T15:26:10.0918239Z #18 exporting layers
+2026-08-24T15:26:10.4304231Z #18 exporting layers 0.5s done
+2026-08-24T15:26:10.6085357Z #18 exporting manifest sha256:cb831068b9abb2e799e4fd43284291f7f3769a81e8e7b5931b4f731f17ef2b9c 0.0s done
+2026-08-24T15:26:10.6086198Z #18 exporting config sha256:8dc3933ff807565f527bef461d9c7aa9650af508e06a3d62cab24cc23a8308c4 0.0s done
+2026-08-24T15:26:10.6086264Z #18 exporting attestation manifest sha256:71ec1842980382832fa4682c1b5fd308743d63fa1b3be76467aed7e5206c5864 0.0s done
+2026-08-24T15:26:10.6086342Z #18 exporting manifest list sha256:27e87b9a3a674ee24040e9e1cf5bdd697aa0ad605e3b860c5f29b1c78f4c559b 0.0s done
+2026-08-24T15:26:10.6086400Z #18 naming to docker.io/library/webapi-imagem-local:latest done
+2026-08-24T15:26:10.6086467Z #18 unpacking to docker.io/library/webapi-imagem-local:latest 0.1s done
+2026-08-24T15:26:10.7806944Z #18 DONE 0.7s
+2026-08-24T15:26:10.8550780Z ::group::Run # Repare na sintaxe 50 e 
+2026-08-24T15:26:10.8551065Z # Repare na sintaxe 50 e 
+2026-08-24T15:26:10.8551125Z docker run -d \
+2026-08-24T15:26:10.8551168Z   --name "api-competidor-container" \
+2026-08-24T15:26:10.8551212Z   -p "50:8080" \
+2026-08-24T15:26:10.8551260Z   --network simuladopr_gitea-network \
+2026-08-24T15:26:10.8551299Z   --restart always \
+2026-08-24T15:26:10.8551338Z   "webapi-imagem-local"
+2026-08-24T15:26:10.8551382Z shell: bash --noprofile --norc -e -o pipefail {0}
+2026-08-24T15:26:10.8551437Z ::endgroup::
+2026-08-24T15:26:11.0315942Z 5973b1528024e993a4b76ed33fb4d61be8cfac761f702a04dd86edad02c95bd8
+2026-08-24T15:26:11.1794222Z docker: Error response from daemon: failed to set up container networking: network simuladopr_gitea-network not found
+2026-08-24T15:26:11.1794718Z 
+2026-08-24T15:26:11.1794771Z Run 'docker run --help' for more information
+2026-08-24T15:26:11.1826441Z   ❌  Failure - Main 4. Rodar o novo container exposto na rede local
+2026-08-24T15:26:11.1974288Z exitcode '125': failure
+2026-08-24T15:26:11.2208873Z evaluating expression 'always()'
+2026-08-24T15:26:11.2209287Z expression 'always()' evaluated to 'true'
+2026-08-24T15:26:11.2209363Z ⭐ Run Post 1. Baixar o código atualizado
+2026-08-24T15:26:11.2209485Z Writing entry to tarball workflow/outputcmd.txt len:0
+2026-08-24T15:26:11.2209576Z Writing entry to tarball workflow/statecmd.txt len:0
+2026-08-24T15:26:11.2209623Z Writing entry to tarball workflow/pathcmd.txt len:0
+2026-08-24T15:26:11.2209670Z Writing entry to tarball workflow/envs.txt len:0
+2026-08-24T15:26:11.2209708Z Writing entry to tarball workflow/SUMMARY.md len:0
+2026-08-24T15:26:11.2209779Z Extracting content to '/var/run/act'
+2026-08-24T15:26:11.2256327Z run post step for '1. Baixar o código atualizado'
+2026-08-24T15:26:11.2256934Z executing remote job container: [node /var/run/act/actions/656c968832d266db0fe5f8f638000eea9e6a5501569cb9a87c7fdaefedb6a0b6/dist/index.js]
+2026-08-24T15:26:11.2257041Z   🐳  docker exec cmd=[node /var/run/act/actions/656c968832d266db0fe5f8f638000eea9e6a5501569cb9a87c7fdaefedb6a0b6/dist/index.js] user= workdir=
+2026-08-24T15:26:11.2257129Z Exec command '[node /var/run/act/actions/656c968832d266db0fe5f8f638000eea9e6a5501569cb9a87c7fdaefedb6a0b6/dist/index.js]'
+2026-08-24T15:26:11.2257350Z Working directory '/workspace/Deliveries/FamiliarizationAPI'
+2026-08-24T15:26:11.2952121Z (node:258) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+2026-08-24T15:26:11.2952698Z (Use `node --trace-deprecation ...` to show where the warning was created)
+2026-08-24T15:26:11.2965758Z [command]/usr/bin/git version
+2026-08-24T15:26:11.2988163Z git version 2.54.0
+2026-08-24T15:26:11.3000483Z ***
+2026-08-24T15:26:11.3011032Z Temporarily overriding HOME='/tmp/0aec8f93-d727-4956-b5d7-19919f0b46e3' before making global git config changes
+2026-08-24T15:26:11.3011506Z Adding repository directory to the temporary git global config as a safe directory
+2026-08-24T15:26:11.3013277Z [command]/usr/bin/git config --global --add safe.directory /workspace/Deliveries/FamiliarizationAPI
+2026-08-24T15:26:11.3030591Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+2026-08-24T15:26:11.3047396Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+2026-08-24T15:26:11.3179406Z [command]/usr/bin/git config --local --name-only --get-regexp http\.http\:\/\/gitea\:3000\/\.extraheader
+2026-08-24T15:26:11.3190226Z http.http://gitea:3000/.extraheader
+2026-08-24T15:26:11.3194510Z [command]/usr/bin/git config --local --unset-all http.http://gitea:3000/.extraheader
+2026-08-24T15:26:11.3213115Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.http\:\/\/gitea\:3000\/\.extraheader' && git config --local --unset-all 'http.http://gitea:3000/.extraheader' || :"
+2026-08-24T15:26:11.3407782Z   ✅  Success - Post 1. Baixar o código atualizado
+2026-08-24T15:26:11.3547141Z Cleaning up container for job deploy-api
+2026-08-24T15:26:11.5286820Z Removed container: 637ef1260596502930fab0f7278425da85a4e8812eb587bf42235f18855af8a1
+2026-08-24T15:26:11.5323623Z   🐳  docker volume rm GITEA-ACTIONS-TASK-3-WORKFLOW-Deploy-WebAPI-JOB-deploy-api-87463b137d10dba2d23f092bc0749588b780c55bf23f2d16ad233a7f008fb140
+2026-08-24T15:26:11.5461058Z   🐳  docker volume rm GITEA-ACTIONS-TASK-3-WORKFLOW-Deploy-WebAPI-JOB-deploy-api-87463b137d10dba2d23f092bc0749588b780c55bf23f2d16ad233a7f008fb140-env
+2026-08-24T15:26:11.5688562Z 🏁  Job failed
+2026-08-24T15:26:11.5775161Z Job 'deploy-api' failed

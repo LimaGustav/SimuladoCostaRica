@@ -1,0 +1,71 @@
+# =====================================================================================
+#  Nortrans Cargo & Customs — Skill 09 competition simulation infrastructure
+#
+#  Bring everything up:      docker compose up -d
+#  Check what is running:    docker compose ps
+#  Follow the logs:          docker compose logs -f reference-api
+#  Take it down (keep data): docker compose down
+#  Reset the databases:      docker compose down -v   &&   docker compose up -d
+#
+#  Services and ports
+#    5080  reference-api  Nortrans Reference API — modules 1 and 5 consume it
+#    5432  reference-db   PostgreSQL behind the Reference API
+#    5433  tt-db          PostgreSQL for module 4 (Track & Trace), database nortrans_tt
+# =====================================================================================
+name: nortrans-ws09
+
+services:
+
+  reference-db:
+    image: postgres:16-alpine
+    container_name: nortrans-reference-db
+    environment:
+      POSTGRES_DB: nortrans_ref
+      POSTGRES_USER: nortrans
+      POSTGRES_PASSWORD: Nortrans2026!
+    ports:
+      - "5432:5432"
+    volumes:
+      - reference-data:/var/lib/postgresql/data
+      - ./db/reference:/docker-entrypoint-initdb.d:ro
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U nortrans -d nortrans_ref"]
+      interval: 5s
+      timeout: 5s
+      retries: 20
+
+  reference-api:
+    build:
+      context: ./reference-api
+    container_name: nortrans-reference-api
+    environment:
+      NORTRANS_DB: "Host=reference-db;Port=5432;Database=nortrans_ref;Username=nortrans;Password=Nortrans2026!"
+      NORTRANS_API_KEY: "ws09-nortrans-2026"
+    ports:
+      - "5080:8080"
+    depends_on:
+      reference-db:
+        condition: service_healthy
+    restart: unless-stopped
+
+  tt-db:
+    image: postgres:16-alpine
+    container_name: nortrans-tt-db
+    environment:
+      POSTGRES_DB: nortrans_tt
+      POSTGRES_USER: nortrans
+      POSTGRES_PASSWORD: Nortrans2026!
+    ports:
+      - "5433:5432"
+    volumes:
+      - tt-data:/var/lib/postgresql/data
+      - ./db/trackandtrace:/docker-entrypoint-initdb.d:ro
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U nortrans -d nortrans_tt"]
+      interval: 5s
+      timeout: 5s
+      retries: 20
+
+volumes:
+  reference-data:
+  tt-data:
